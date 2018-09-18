@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour {
     private float maxSpeed = 5f;
     private Vector3 spawn;
     public GameObject deathParticles;
+    public TimeManager timeManager;
 	// Use this for initialization
 	void Start () {
         spawn = transform.position;
@@ -22,6 +23,9 @@ public class PlayerMovement : MonoBehaviour {
         if (transform.position.y < -2)
         {
             Die();
+        }
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            timeManager.DoSlowmotion();
         }
     }
 
